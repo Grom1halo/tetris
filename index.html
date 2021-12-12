@@ -21,8 +21,17 @@ span {
 }
 </style>
 
+<head>
+	<meta charset="utf-8">
+</head>
+
 <canvas width="200" height="400"></canvas>
 <p>Score: <span class="score">0</span></p>
+
+<input id="up" type="button" name="up" value="up">
+<p><input id="left" type="button" name="left" value="left"> <a>.	.</a> <input id="right" type="button" name="right" value="right"></p>
+<input id="down" type="button" name="down" value="down">
+
 
 <script>
 const I = [
@@ -396,6 +405,23 @@ document.addEventListener("keydown", (event) => {
       break;
   }
 });
+
+up.onclick = function(){
+	p.rotate();
+      dropStart = Date.now();
+};
+left.onclick = function(){
+	p.move("left");
+      dropStart = Date.now();
+}
+right.onclick = function(){
+	p.move("right");
+      dropStart = Date.now();
+}
+down.onclick = function(){
+	p.move("down");
+	  dropStart = Date.now();
+}
 
 let dropStart = Date.now();
 let gameOver = false;
